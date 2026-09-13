@@ -100,6 +100,7 @@
     }
 
     /* GALERÍA */
+
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -113,11 +114,61 @@
       border-radius: 18px;
       box-shadow: 0 6px 15px rgba(0,0,0,0.15);
       transition: transform 0.25s;
+      cursor: pointer;
     }
 
     .gallery img:hover {
       transform: scale(1.04) rotate(1deg);
     }
+
+    /* VISOR DE FOTOS */
+
+    .visor {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.88);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      cursor: pointer;
+    }
+
+    .visor img {
+      max-width: 95%;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 20px;
+      box-shadow: 0 0 35px rgba(255, 255, 255, 0.2);
+      cursor: default;
+      animation: aparecerFoto 0.2s ease;
+    }
+
+    @keyframes aparecerFoto {
+      from {
+        transform: scale(0.85);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .cerrar {
+      position: absolute;
+      top: 18px;
+      right: 25px;
+      color: white;
+      font-size: 32px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 10000;
+    }
+
+    /* BOTONES */
 
     .surprise {
       text-align: center;
@@ -140,6 +191,20 @@
       transform: scale(1.06);
     }
 
+    /* MÚSICA */
+
+    .music-player {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    #cancion {
+      width: 100%;
+      max-width: 500px;
+    }
+
     #secret {
       display: none;
       margin-top: 25px;
@@ -153,6 +218,8 @@
       padding: 20px;
       color: #754b75;
     }
+
+    /* CORAZONES */
 
     .heart {
       position: fixed;
@@ -174,7 +241,10 @@
       }
     }
 
+    /* CELULAR */
+
     @media (max-width: 600px) {
+
       h1 {
         font-size: 32px;
       }
@@ -186,7 +256,16 @@
       p {
         font-size: 16px;
       }
+
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery img {
+        height: 180px;
+      }
     }
+
   </style>
 </head>
 
@@ -195,7 +274,9 @@
   <div class="container">
 
     <!-- PORTADA -->
+
     <section class="card cover">
+
       <div class="emoji">🥹💗</div>
 
       <h1>Feliz cumpleaños, mi piojo</h1>
@@ -207,11 +288,14 @@
       <p>
         💗 Espero ke te guste mushote 💗
       </p>
+
     </section>
 
 
     <!-- NUESTRA HISTORIA -->
+
     <section class="card story">
+
       <h2>💌 Nuestra historia</h2>
 
       <p>
@@ -240,11 +324,14 @@
           Hice esto con musho amor solamente para ti, mi niña :> 💗
         </strong>
       </p>
+
     </section>
 
 
     <!-- GALERÍA -->
+
     <section class="card">
+
       <h2>📸 Nuestros momentos</h2>
 
       <p style="text-align:center;">
@@ -253,34 +340,33 @@
 
       <div class="gallery">
 
-        <!--
-          ACÁ VAN TUS FOTOS.
-
-          IMPORTANTE:
-          Cambiá los nombres de ejemplo por los nombres EXACTOS
-          de las fotos que subiste a GitHub.
-
-          Ejemplo:
-          <img src="foto1.jpg" alt="Nuestro recuerdo">
-        -->
-
         <img src="20260817_225754.jpg" alt="Nuestro recuerdo">
+
         <img src="392e707528864f79ba02ccc0f7d827b5.webp" alt="Nuestro recuerdo">
+
         <img src="73f14971917c909306536a41342eff57.webp" alt="Nuestro recuerdo">
+
         <img src="IMG_20260602_005224.jpg" alt="Nuestro recuerdo">
+
         <img src="PXL_20260812_185036543(1).jpg" alt="Nuestro recuerdo">
+
         <img src="Screenshot_2026-08-01-19-34-16-710.jpg" alt="Nuestro recuerdo">
+
         <img src="Screenshot_2026-08-25-04-53-37-465.jpg" alt="Nuestro recuerdo">
+
         <img src="Screenshot_20260831_231329_TikTok.jpg" alt="Nuestro recuerdo">
+
         <img src="03d33212d77b42eeb53c7cfd825053de.webp" alt="Nuestro recuerdo">
 
-
       </div>
+
     </section>
 
 
     <!-- 10 COSAS -->
+
     <section class="card">
+
       <h2>👽 10 kositas ke amo musho d ti</h2>
 
       <div class="things">
@@ -336,11 +422,14 @@
         </div>
 
       </div>
+
     </section>
 
 
     <!-- CARTA -->
+
     <section class="card">
+
       <h2>💌 Una cartita para ti🥹</h2>
 
       <p>
@@ -349,18 +438,21 @@
       </p>
 
       <p>
-        Gracias por todas las cosas ke hicimos juntos, las risas, los recuerdos, 
+        Gracias por todas las cosas ke hicimos juntos, las risas, los recuerdos,
         y muchas cosas más. gracias por estar a mi lado :]
       </p>
 
       <p>
         Te quiero muchísimo, mi piojito💖
       </p>
+
     </section>
 
 
     <!-- NUESTRA CANCIÓN -->
+
     <section class="card" style="text-align:center;">
+
       <h2>🎵 Nuestra canción</h2>
 
       <p>
@@ -370,11 +462,27 @@
       <p>
         este temon ke siempre m recuerda a ti:]
       </p>
+
+      <div class="music-player">
+
+        <audio id="cancion" preload="metadata">
+          <source src="reina-pepiada.mp3" type="audio/mpeg">
+          Tu navegador no puede reproducir este audio.
+        </audio>
+
+        <button onclick="reproducirCancion()" id="botonMusica">
+          ▶️ Escuchar nuestra canción 💗
+        </button>
+
+      </div>
+
     </section>
 
 
     <!-- SORPRESA -->
+
     <section class="card surprise">
+
       <h2>🎁 Tengo una sorpresita...</h2>
 
       <p>
@@ -386,47 +494,175 @@
       </button>
 
       <div id="secret">
+
         TE AMO MUCHOTEEEE MI PIOJO 💗😭
+
         <br><br>
+
         Feliz cumpleaños, mi niña :>
+
       </div>
+
     </section>
 
   </div>
 
 
+  <!-- PIE DE PÁGINA -->
+
   <footer>
+
     Desde Argentina 🇦🇷💗 hasta República Dominicana 🇩🇴
+
     <br>
+
     Hecho con musho amol por tu niño :>
+
   </footer>
 
 
+  <!-- VISOR DE FOTO GRANDE -->
+
+  <div id="visor" class="visor" onclick="cerrarFoto()">
+
+    <span class="cerrar">✕</span>
+
+    <img
+      id="fotoGrande"
+      src=""
+      alt="Foto ampliada"
+      onclick="event.stopPropagation()"
+    >
+
+  </div>
+
+
   <script>
+
+    /* =========================
+       VISOR DE FOTOS
+    ========================= */
+
+    const fotos = document.querySelectorAll(".gallery img");
+
+    const visor = document.getElementById("visor");
+
+    const fotoGrande = document.getElementById("fotoGrande");
+
+
+    fotos.forEach(foto => {
+
+      foto.addEventListener("click", () => {
+
+        fotoGrande.src = foto.src;
+
+        visor.style.display = "flex";
+
+      });
+
+    });
+
+
+    function cerrarFoto() {
+
+      visor.style.display = "none";
+
+      fotoGrande.src = "";
+
+    }
+
+
+    /* =========================
+       REPRODUCTOR DE MÚSICA
+    ========================= */
+
+    function reproducirCancion() {
+
+      const cancion = document.getElementById("cancion");
+
+      const boton = document.getElementById("botonMusica");
+
+
+      if (cancion.paused) {
+
+        cancion.play()
+          .then(() => {
+
+            boton.innerHTML = "⏸️ Pausar nuestra canción";
+
+          })
+          .catch(() => {
+
+            boton.innerHTML = "⚠️ No se pudo reproducir";
+
+          });
+
+      } else {
+
+        cancion.pause();
+
+        boton.innerHTML = "▶️ Escuchar nuestra canción 💗";
+
+      }
+
+    }
+
+
+    /* Cuando termina la canción */
+
+    document.getElementById("cancion").addEventListener("ended", () => {
+
+      document.getElementById("botonMusica").innerHTML =
+        "▶️ Escuchar nuestra canción 💗";
+
+    });
+
+
+    /* =========================
+       SORPRESA
+    ========================= */
+
     function showSurprise() {
 
       document.getElementById("secret").style.display = "block";
+
 
       for (let i = 0; i < 35; i++) {
 
         const heart = document.createElement("div");
 
         heart.className = "heart";
-        heart.innerHTML = Math.random() > 0.5 ? "💗" : "💖";
 
-        heart.style.left = Math.random() * 100 + "vw";
+        heart.innerHTML =
+          Math.random() > 0.5 ? "💗" : "💖";
+
+
+        heart.style.left =
+          Math.random() * 100 + "vw";
+
+
         heart.style.bottom = "-30px";
+
+
         heart.style.animationDuration =
           (2 + Math.random() * 2) + "s";
 
+
         document.body.appendChild(heart);
 
+
         setTimeout(() => {
+
           heart.remove();
+
         }, 4000);
+
       }
+
     }
+
   </script>
 
 </body>
 </html>
+
