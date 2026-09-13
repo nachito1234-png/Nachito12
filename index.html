@@ -99,7 +99,9 @@
       color: #d94f9d;
     }
 
-    /* GALERÍA */
+    /* =========================
+       GALERÍA
+    ========================= */
 
     .gallery {
       display: grid;
@@ -114,61 +116,15 @@
       border-radius: 18px;
       box-shadow: 0 6px 15px rgba(0,0,0,0.15);
       transition: transform 0.25s;
-      cursor: pointer;
     }
 
     .gallery img:hover {
       transform: scale(1.04) rotate(1deg);
     }
 
-    /* VISOR DE FOTOS */
-
-    .visor {
-      display: none;
-      position: fixed;
-      z-index: 9999;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.88);
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      cursor: pointer;
-    }
-
-    .visor img {
-      max-width: 95%;
-      max-height: 90vh;
-      object-fit: contain;
-      border-radius: 20px;
-      box-shadow: 0 0 35px rgba(255, 255, 255, 0.2);
-      cursor: default;
-      animation: aparecerFoto 0.2s ease;
-    }
-
-    @keyframes aparecerFoto {
-      from {
-        transform: scale(0.85);
-        opacity: 0;
-      }
-
-      to {
-        transform: scale(1);
-        opacity: 1;
-      }
-    }
-
-    .cerrar {
-      position: absolute;
-      top: 18px;
-      right: 25px;
-      color: white;
-      font-size: 32px;
-      font-weight: bold;
-      cursor: pointer;
-      z-index: 10000;
-    }
-
-    /* BOTONES */
+    /* =========================
+       BOTONES GENERALES
+    ========================= */
 
     .surprise {
       text-align: center;
@@ -191,20 +147,6 @@
       transform: scale(1.06);
     }
 
-    /* MÚSICA */
-
-    .music-player {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
-    }
-
-    #cancion {
-      width: 100%;
-      max-width: 500px;
-    }
-
     #secret {
       display: none;
       margin-top: 25px;
@@ -219,7 +161,9 @@
       color: #754b75;
     }
 
-    /* CORAZONES */
+    /* =========================
+       CORAZONES
+    ========================= */
 
     .heart {
       position: fixed;
@@ -241,7 +185,261 @@
       }
     }
 
-    /* CELULAR */
+    /* =========================
+       REPRODUCTOR DE MÚSICA
+    ========================= */
+
+    .music-player {
+      width: 100%;
+      max-width: 520px;
+      margin: 25px auto 5px;
+    }
+
+    .music-box {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(145deg, #fff0f8, #f4e8ff);
+      border-radius: 25px;
+      padding: 25px 22px;
+      box-shadow:
+        0 10px 30px rgba(217, 79, 157, 0.20),
+        inset 0 0 0 1px rgba(255,255,255,0.7);
+    }
+
+    .music-box::before {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      background: rgba(255, 114, 182, 0.18);
+      border-radius: 50%;
+      top: -90px;
+      right: -70px;
+      filter: blur(10px);
+    }
+
+    .music-box::after {
+      content: "";
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      background: rgba(185, 120, 255, 0.15);
+      border-radius: 50%;
+      bottom: -70px;
+      left: -50px;
+      filter: blur(10px);
+    }
+
+    /* Disco */
+
+    .music-disc {
+      width: 105px;
+      height: 105px;
+      margin: 0 auto 15px;
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle at center,
+          #fff 0 8px,
+          #ff72b6 9px 14px,
+          #d94f9d 15px 25px,
+          #b978ff 26px 45px,
+          #ff72b6 46px 52px,
+          #d94f9d 53px 100%
+        );
+
+      box-shadow:
+        0 8px 20px rgba(150,70,150,0.25);
+
+      position: relative;
+      z-index: 2;
+    }
+
+    .music-disc.playing {
+      animation: girarDisco 4s linear infinite;
+    }
+
+    @keyframes girarDisco {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Título */
+
+    .music-title {
+      position: relative;
+      z-index: 2;
+      font-size: 20px;
+      font-weight: bold;
+      color: #c653a0;
+      margin: 5px 0;
+    }
+
+    .music-subtitle {
+      position: relative;
+      z-index: 2;
+      font-size: 14px;
+      color: #8a638a;
+      margin-bottom: 18px;
+    }
+
+    /* Botón Play */
+
+    .music-play {
+      position: relative;
+      z-index: 2;
+
+      width: 62px;
+      height: 62px;
+
+      padding: 0;
+      border-radius: 50%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin: 0 auto 20px;
+
+      font-size: 25px;
+
+      box-shadow:
+        0 7px 18px rgba(217,79,157,0.30);
+    }
+
+    .music-play:hover {
+      transform: scale(1.08);
+    }
+
+    /* Barra */
+
+    .progress-container {
+      position: relative;
+      z-index: 2;
+
+      width: 100%;
+      cursor: pointer;
+
+      padding: 8px 0;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 7px;
+
+      background: #ead7e8;
+
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .progress {
+      width: 0%;
+      height: 100%;
+
+      background:
+        linear-gradient(
+          90deg,
+          #ff72b6,
+          #b978ff
+        );
+
+      border-radius: 10px;
+
+      transition: width 0.1s linear;
+    }
+
+    /* Tiempo */
+
+    .music-times {
+      position: relative;
+      z-index: 2;
+
+      display: flex;
+      justify-content: space-between;
+
+      margin-top: 6px;
+
+      font-size: 13px;
+      color: #8a638a;
+    }
+
+    /* Ecualizador */
+
+    .equalizer {
+      position: relative;
+      z-index: 2;
+
+      height: 35px;
+
+      display: flex;
+      align-items: end;
+      justify-content: center;
+
+      gap: 4px;
+
+      margin-top: 18px;
+    }
+
+    .equalizer span {
+      width: 4px;
+      height: 10px;
+
+      background:
+        linear-gradient(
+          to top,
+          #ff72b6,
+          #b978ff
+        );
+
+      border-radius: 5px;
+    }
+
+    .equalizer.playing span:nth-child(1) {
+      animation: equalizador 0.7s infinite alternate;
+    }
+
+    .equalizer.playing span:nth-child(2) {
+      animation: equalizador 0.45s infinite alternate;
+    }
+
+    .equalizer.playing span:nth-child(3) {
+      animation: equalizador 0.8s infinite alternate;
+    }
+
+    .equalizer.playing span:nth-child(4) {
+      animation: equalizador 0.5s infinite alternate;
+    }
+
+    .equalizer.playing span:nth-child(5) {
+      animation: equalizador 0.65s infinite alternate;
+    }
+
+    @keyframes equalizador {
+      from {
+        height: 6px;
+      }
+
+      to {
+        height: 32px;
+      }
+    }
+
+    /* Ocultamos el reproductor original */
+
+    #audioReal {
+      display: none;
+    }
+
+    /* =========================
+       CELULAR
+    ========================= */
 
     @media (max-width: 600px) {
 
@@ -257,29 +455,38 @@
         font-size: 16px;
       }
 
-      .gallery {
-        grid-template-columns: repeat(2, 1fr);
+      .music-box {
+        padding: 22px 17px;
       }
 
-      .gallery img {
-        height: 180px;
+      .music-disc {
+        width: 95px;
+        height: 95px;
       }
+
     }
 
   </style>
 </head>
 
+
 <body>
 
   <div class="container">
 
-    <!-- PORTADA -->
+    <!-- =========================
+         PORTADA
+    ========================= -->
 
     <section class="card cover">
 
-      <div class="emoji">🥹💗</div>
+      <div class="emoji">
+        🥹💗
+      </div>
 
-      <h1>Feliz cumpleaños, mi piojo</h1>
+      <h1>
+        Feliz cumpleaños, mi piojo
+      </h1>
 
       <p class="subtitle">
         Esta pequeña página la hice solamente para ti :>
@@ -292,47 +499,60 @@
     </section>
 
 
-    <!-- NUESTRA HISTORIA -->
+    <!-- =========================
+         NUESTRA HISTORIA
+    ========================= -->
 
     <section class="card story">
 
-      <h2>💌 Nuestra historia</h2>
+      <h2>
+        💌 Nuestra historia
+      </h2>
 
       <p>
-        Desde ese día que te conocí, todo cambió para mí, y fue de la buena manera jsjsjs. 💗
+        Desde ese día que te conocí, todo cambió para mí,
+        y fue de la buena manera jsjsjs. 💗
       </p>
 
       <p>
-        También agradezco todas las cosas que pasé junto a ti todos estos años,
-        y quiero que sepas que me haces el niño más feliz del mundo :>.
+        También agradezco todas las cosas que pasé junto a ti
+        todos estos años, y quiero que sepas que me haces
+        el niño más feliz del mundo :>.
       </p>
 
       <p>
-        Nunca olvides que yo te amo muchote y que siempre soy feliz contigo.
-        Incluso aunque a veces no tengas tiempo para mí por tus estudios,
-        yo siempre me siento feliz porque me acuerdo de las cosas que hicimos
-        todos estos añitos juntitos :].
+        Nunca olvides que yo te amo muchote y que siempre soy
+        feliz contigo. Incluso aunque a veces no tengas tiempo
+        para mí por tus estudios, yo siempre me siento feliz
+        porque me acuerdo de las cosas que hicimos todos estos
+        añitos juntitos :].
       </p>
 
       <p>
-        Y también quiero que sepas que eres la única persona a la que quiero
-        en mi vida y yo quiero formar una familia contigo de grandes :D💖
+        Y también quiero que sepas que eres la única persona
+        a la que quiero en mi vida y yo quiero formar una
+        familia contigo de grandes :D💖
       </p>
 
       <p>
         <strong>
-          Hice esto con musho amor solamente para ti, mi niña :> 💗
+          Hice esto con musho amor solamente para ti,
+          mi niña :> 💗
         </strong>
       </p>
 
     </section>
 
 
-    <!-- GALERÍA -->
+    <!-- =========================
+         GALERÍA
+    ========================= -->
 
     <section class="card">
 
-      <h2>📸 Nuestros momentos</h2>
+      <h2>
+        📸 Nuestros momentos
+      </h2>
 
       <p style="text-align:center;">
         Algunos recuerditos de nosotros 💗
@@ -340,85 +560,137 @@
 
       <div class="gallery">
 
-        <img src="20260817_225754.jpg" alt="Nuestro recuerdo">
+        <img
+          src="20260817_225754.jpg"
+          alt="Nuestro recuerdo"
+        >
 
-        <img src="392e707528864f79ba02ccc0f7d827b5.webp" alt="Nuestro recuerdo">
+        <img
+          src="392e707528864f79ba02ccc0f7d827b5.webp"
+          alt="Nuestro recuerdo"
+        >
 
-        <img src="73f14971917c909306536a41342eff57.webp" alt="Nuestro recuerdo">
+        <img
+          src="73f14971917c909306536a41342eff57.webp"
+          alt="Nuestro recuerdo"
+        >
 
-        <img src="IMG_20260602_005224.jpg" alt="Nuestro recuerdo">
+        <img
+          src="IMG_20260602_005224.jpg"
+          alt="Nuestro recuerdo"
+        >
 
-        <img src="PXL_20260812_185036543(1).jpg" alt="Nuestro recuerdo">
+        <img
+          src="PXL_20260812_185036543(1).jpg"
+          alt="Nuestro recuerdo"
+        >
 
-        <img src="Screenshot_2026-08-01-19-34-16-710.jpg" alt="Nuestro recuerdo">
+        <img
+          src="Screenshot_2026-08-01-19-34-16-710.jpg"
+          alt="Nuestro recuerdo"
+        >
 
-        <img src="Screenshot_2026-08-25-04-53-37-465.jpg" alt="Nuestro recuerdo">
+        <img
+          src="Screenshot_2026-08-25-04-53-37-465.jpg"
+          alt="Nuestro recuerdo"
+        >
 
-        <img src="Screenshot_20260831_231329_TikTok.jpg" alt="Nuestro recuerdo">
+        <img
+          src="Screenshot_20260831_231329_TikTok.jpg"
+          alt="Nuestro recuerdo"
+        >
 
-        <img src="03d33212d77b42eeb53c7cfd825053de.webp" alt="Nuestro recuerdo">
+        <img
+          src="03d33212d77b42eeb53c7cfd825053de.webp"
+          alt="Nuestro recuerdo"
+        >
 
       </div>
 
     </section>
 
 
-    <!-- 10 COSAS -->
+    <!-- =========================
+         10 COSAS
+    ========================= -->
 
     <section class="card">
 
-      <h2>👽 10 kositas ke amo musho d ti</h2>
+      <h2>
+        👽 10 kositas ke amo musho d ti
+      </h2>
 
       <div class="things">
 
         <div class="thing">
           <b>01 💗</b>
-          <p>Tu forma de ser conmigo.</p>
+          <p>
+            Tu forma de ser conmigo.
+          </p>
         </div>
 
         <div class="thing">
           <b>02 💗</b>
-          <p>Lo muchito ke m haces reír.</p>
+          <p>
+            Lo muchito ke m haces reír.
+          </p>
         </div>
 
         <div class="thing">
           <b>03 💗</b>
-          <p>Lo cariñosa ke eres conmigo :].</p>
+          <p>
+            Lo cariñosa ke eres conmigo :].
+          </p>
         </div>
 
         <div class="thing">
           <b>04 💗</b>
-          <p>Tu forma d demostrarme ke m kieres.</p>
+          <p>
+            Tu forma d demostrarme ke m kieres.
+          </p>
         </div>
 
         <div class="thing">
           <b>05 💗</b>
-          <p>Tu personalidad tan hermosa, especial y única.</p>
+          <p>
+            Tu personalidad tan hermosa,
+            especial y única.
+          </p>
         </div>
 
         <div class="thing">
           <b>06 💗</b>
-          <p>Tods nuestros momentos juntos.</p>
+          <p>
+            Tods nuestros momentos juntos.
+          </p>
         </div>
 
         <div class="thing">
           <b>07 💗</b>
-          <p>ke seas mi niña :3.</p>
+          <p>
+            ke seas mi niña :3.
+          </p>
         </div>
 
         <div class="thing">
           <b>08 💗</b>
-          <p>Cómo siempre lográs alegrarme.</p>
+          <p>
+            Cómo siempre lográs alegrarme.
+          </p>
         </div>
 
         <div class="thing">
           <b>09 💗</b>
-          <p>ke io puedo ser yo mismo contigo.</p>
+          <p>
+            ke io puedo ser yo mismo contigo.
+          </p>
         </div>
 
         <div class="thing">
           <b>10 💗</b>
-          <p>y simplemente pq eres tu misma :].</p>
+          <p>
+            y simplemente pq eres tu misma :].
+          </p>
         </div>
 
       </div>
@@ -426,20 +698,25 @@
     </section>
 
 
-    <!-- CARTA -->
+    <!-- =========================
+         CARTA
+    ========================= -->
 
     <section class="card">
 
-      <h2>💌 Una cartita para ti🥹</h2>
+      <h2>
+        💌 Una cartita para ti🥹
+      </h2>
 
       <p>
-        Mi niña, espero que tengas un cumpleaños hermoso y que puedas disfrutar
-        muchísimo este día.
+        Mi niña, espero que tengas un cumpleaños hermoso
+        y que puedas disfrutar muchísimo este día.
       </p>
 
       <p>
-        Gracias por todas las cosas ke hicimos juntos, las risas, los recuerdos,
-        y muchas cosas más. gracias por estar a mi lado :]
+        Gracias por todas las cosas ke hicimos juntos,
+        las risas, los recuerdos, y muchas cosas más.
+        gracias por estar a mi lado :]
       </p>
 
       <p>
@@ -449,44 +726,144 @@
     </section>
 
 
-    <!-- NUESTRA CANCIÓN -->
+    <!-- =========================
+         NUESTRA CANCIÓN
+    ========================= -->
 
     <section class="card" style="text-align:center;">
 
-      <h2>🎵 Nuestra canción</h2>
+      <h2>
+        🎵 Nuestra canción
+      </h2>
 
       <p>
-        <strong>Reina Pepiada 💗</strong>
+        <strong>
+          Reina Pepiada 💗
+        </strong>
       </p>
 
       <p>
         este temon ke siempre m recuerda a ti:]
       </p>
 
+
+      <!-- REPRODUCTOR -->
+
       <div class="music-player">
 
-        <audio id="cancion" preload="metadata">
-          <source src="reina-pepiada.mp3" type="audio/mpeg">
-          Tu navegador no puede reproducir este audio.
-        </audio>
+        <div class="music-box">
 
-        <button onclick="reproducirCancion()" id="botonMusica">
-          ▶️ Escuchar nuestra canción 💗
-        </button>
+          <!-- DISCO ANIMADO -->
+
+          <div
+            class="music-disc"
+            id="musicDisc"
+          ></div>
+
+
+          <!-- NOMBRE -->
+
+          <div class="music-title">
+            Reina Pepiada 💗
+          </div>
+
+          <div class="music-subtitle">
+            nuestro temoncito :]
+          </div>
+
+
+          <!-- AUDIO REAL -->
+
+          <audio
+            id="audioReal"
+            preload="metadata"
+          >
+
+            <source
+              src="reina-pepiada.mp3"
+              type="audio/mpeg"
+            >
+
+          </audio>
+
+
+          <!-- BOTÓN -->
+
+          <button
+            class="music-play"
+            id="musicPlay"
+            onclick="reproducirCancion()"
+          >
+            ▶️
+          </button>
+
+
+          <!-- BARRA -->
+
+          <div
+            class="progress-container"
+            id="progressContainer"
+          >
+
+            <div class="progress-bar">
+
+              <div
+                class="progress"
+                id="progress"
+              ></div>
+
+            </div>
+
+
+            <div class="music-times">
+
+              <span id="currentTime">
+                0:00
+              </span>
+
+              <span id="duration">
+                0:00
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <!-- ECUALIZADOR -->
+
+          <div
+            class="equalizer"
+            id="equalizer"
+          >
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+          </div>
+
+        </div>
 
       </div>
 
     </section>
 
 
-    <!-- SORPRESA -->
+    <!-- =========================
+         SORPRESA
+    ========================= -->
 
     <section class="card surprise">
 
-      <h2>🎁 Tengo una sorpresita...</h2>
+      <h2>
+        🎁 Tengo una sorpresita...
+      </h2>
 
       <p>
-        Hay algo que quiero decirte jeje😛💖
+        Hay algo ke kiero decirte jeje😛💖
       </p>
 
       <button onclick="showSurprise()">
@@ -508,7 +885,9 @@
   </div>
 
 
-  <!-- PIE DE PÁGINA -->
+  <!-- =========================
+       FOOTER
+  ========================= -->
 
   <footer>
 
@@ -521,134 +900,228 @@
   </footer>
 
 
-  <!-- VISOR DE FOTO GRANDE -->
-
-  <div id="visor" class="visor" onclick="cerrarFoto()">
-
-    <span class="cerrar">✕</span>
-
-    <img
-      id="fotoGrande"
-      src=""
-      alt="Foto ampliada"
-      onclick="event.stopPropagation()"
-    >
-
-  </div>
-
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
 
   <script>
 
     /* =========================
-       VISOR DE FOTOS
+       REPRODUCTOR
     ========================= */
 
-    const fotos = document.querySelectorAll(".gallery img");
+    const audio =
+      document.getElementById("audioReal");
 
-    const visor = document.getElementById("visor");
+    const playButton =
+      document.getElementById("musicPlay");
 
-    const fotoGrande = document.getElementById("fotoGrande");
+    const progress =
+      document.getElementById("progress");
+
+    const progressContainer =
+      document.getElementById("progressContainer");
+
+    const currentTimeText =
+      document.getElementById("currentTime");
+
+    const durationText =
+      document.getElementById("duration");
+
+    const musicDisc =
+      document.getElementById("musicDisc");
+
+    const equalizer =
+      document.getElementById("equalizer");
 
 
-    fotos.forEach(foto => {
+    /* FORMATO DE TIEMPO */
 
-      foto.addEventListener("click", () => {
+    function formatoTiempo(segundos) {
 
-        fotoGrande.src = foto.src;
+      if (isNaN(segundos)) {
+        return "0:00";
+      }
 
-        visor.style.display = "flex";
+      const minutos =
+        Math.floor(segundos / 60);
 
-      });
+      const segundosRestantes =
+        Math.floor(segundos % 60);
 
-    });
-
-
-    function cerrarFoto() {
-
-      visor.style.display = "none";
-
-      fotoGrande.src = "";
+      return minutos + ":" +
+        (segundosRestantes < 10
+          ? "0" + segundosRestantes
+          : segundosRestantes);
 
     }
 
 
-    /* =========================
-       REPRODUCTOR DE MÚSICA
-    ========================= */
+    /* PLAY / PAUSA */
 
     function reproducirCancion() {
 
-      const cancion = document.getElementById("cancion");
+      if (audio.paused) {
 
-      const boton = document.getElementById("botonMusica");
-
-
-      if (cancion.paused) {
-
-        cancion.play()
+        audio.play()
           .then(() => {
 
-            boton.innerHTML = "⏸️ Pausar nuestra canción";
+            playButton.innerHTML = "⏸️";
+
+            musicDisc.classList.add(
+              "playing"
+            );
+
+            equalizer.classList.add(
+              "playing"
+            );
 
           })
           .catch(() => {
 
-            boton.innerHTML = "⚠️ No se pudo reproducir";
+            playButton.innerHTML = "⚠️";
 
           });
 
       } else {
 
-        cancion.pause();
+        audio.pause();
 
-        boton.innerHTML = "▶️ Escuchar nuestra canción 💗";
+        playButton.innerHTML = "▶️";
+
+        musicDisc.classList.remove(
+          "playing"
+        );
+
+        equalizer.classList.remove(
+          "playing"
+        );
 
       }
 
     }
 
 
-    /* Cuando termina la canción */
+    /* CARGAR DURACIÓN */
 
-    document.getElementById("cancion").addEventListener("ended", () => {
+    audio.addEventListener(
+      "loadedmetadata",
+      () => {
 
-      document.getElementById("botonMusica").innerHTML =
-        "▶️ Escuchar nuestra canción 💗";
+        durationText.textContent =
+          formatoTiempo(audio.duration);
 
-    });
+      }
+    );
+
+
+    /* ACTUALIZAR BARRA */
+
+    audio.addEventListener(
+      "timeupdate",
+      () => {
+
+        if (!audio.duration) return;
+
+        const porcentaje =
+          (audio.currentTime /
+            audio.duration) * 100;
+
+        progress.style.width =
+          porcentaje + "%";
+
+        currentTimeText.textContent =
+          formatoTiempo(
+            audio.currentTime
+          );
+
+      }
+    );
+
+
+    /* TOCAR LA BARRA */
+
+    progressContainer.addEventListener(
+      "click",
+      (evento) => {
+
+        if (!audio.duration) return;
+
+        const ancho =
+          progressContainer.clientWidth;
+
+        const posicion =
+          evento.offsetX / ancho;
+
+        audio.currentTime =
+          posicion * audio.duration;
+
+      }
+    );
+
+
+    /* CUANDO TERMINA */
+
+    audio.addEventListener(
+      "ended",
+      () => {
+
+        playButton.innerHTML = "▶️";
+
+        musicDisc.classList.remove(
+          "playing"
+        );
+
+        equalizer.classList.remove(
+          "playing"
+        );
+
+        progress.style.width =
+          "0%";
+
+        currentTimeText.textContent =
+          "0:00";
+
+      }
+    );
 
 
     /* =========================
-       SORPRESA
+       SORPRESA + CORAZONES
     ========================= */
 
     function showSurprise() {
 
-      document.getElementById("secret").style.display = "block";
+      document.getElementById(
+        "secret"
+      ).style.display = "block";
 
 
       for (let i = 0; i < 35; i++) {
 
-        const heart = document.createElement("div");
+        const heart =
+          document.createElement("div");
 
         heart.className = "heart";
 
         heart.innerHTML =
-          Math.random() > 0.5 ? "💗" : "💖";
-
+          Math.random() > 0.5
+            ? "💗"
+            : "💖";
 
         heart.style.left =
           Math.random() * 100 + "vw";
 
-
-        heart.style.bottom = "-30px";
-
+        heart.style.bottom =
+          "-30px";
 
         heart.style.animationDuration =
           (2 + Math.random() * 2) + "s";
 
 
-        document.body.appendChild(heart);
+        document.body.appendChild(
+          heart
+        );
 
 
         setTimeout(() => {
@@ -664,5 +1137,4 @@
   </script>
 
 </body>
-</html>
-
+  </html>
