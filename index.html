@@ -239,4 +239,188 @@
         <strong>
           Hice esto con musho amor solamente para ti, mi niña :> 💗
         </strong>
-     
+      </p>
+    </section>
+
+
+    <!-- GALERÍA -->
+    <section class="card">
+      <h2>📸 Nuestros momentos</h2>
+
+      <p style="text-align:center;">
+        Algunos recuerditos de nosotros 💗
+      </p>
+
+      <div class="gallery">
+
+        <!--
+          ACÁ VAN TUS FOTOS.
+
+          IMPORTANTE:
+          Cambiá los nombres de ejemplo por los nombres EXACTOS
+          de las fotos que subiste a GitHub.
+
+          Ejemplo:
+          <img src="foto1.jpg" alt="Nuestro recuerdo">
+        -->
+
+        <img src="foto1.jpg" alt="Nuestro recuerdo">
+        <img src="foto2.jpg" alt="Nuestro recuerdo">
+        <img src="foto3.jpg" alt="Nuestro recuerdo">
+        <img src="foto4.jpg" alt="Nuestro recuerdo">
+
+      </div>
+    </section>
+
+
+    <!-- 10 COSAS -->
+    <section class="card">
+      <h2>🐛 10 cosas que amo de vos</h2>
+
+      <div class="things">
+
+        <div class="thing">
+          <b>01 💗</b>
+          <p>Tu forma de ser conmigo.</p>
+        </div>
+
+        <div class="thing">
+          <b>02 💗</b>
+          <p>Lo mucho que me haces reír.</p>
+        </div>
+
+        <div class="thing">
+          <b>03 💗</b>
+          <p>Lo cariñosa que sos.</p>
+        </div>
+
+        <div class="thing">
+          <b>04 💗</b>
+          <p>Tu forma de demostrarme que me querés.</p>
+        </div>
+
+        <div class="thing">
+          <b>05 💗</b>
+          <p>Tu personalidad tan única.</p>
+        </div>
+
+        <div class="thing">
+          <b>06 💗</b>
+          <p>Todos nuestros momentos juntos.</p>
+        </div>
+
+        <div class="thing">
+          <b>07 💗</b>
+          <p>Que seas mi piojito jsjsjs.</p>
+        </div>
+
+        <div class="thing">
+          <b>08 💗</b>
+          <p>Cómo siempre lográs alegrarme.</p>
+        </div>
+
+        <div class="thing">
+          <b>09 💗</b>
+          <p>Que puedo ser yo mismo contigo.</p>
+        </div>
+
+        <div class="thing">
+          <b>10 💗</b>
+          <p>Simplemente porque sos vos.</p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- CARTA -->
+    <section class="card">
+      <h2>💌 Una cartita para vos</h2>
+
+      <p>
+        Mi niña, espero que tengas un cumpleaños hermoso y que puedas disfrutar
+        muchísimo este día.
+      </p>
+
+      <p>
+        Gracias por todos los momentos, las risas, las conversaciones y cada
+        pequeño recuerdo que tenemos juntos.
+      </p>
+
+      <p>
+        Te quiero muchísimo, mi piojo 🐛💗
+      </p>
+    </section>
+
+
+    <!-- NUESTRA CANCIÓN -->
+    <section class="card" style="text-align:center;">
+      <h2>🎵 Nuestra canción</h2>
+
+      <p>
+        <strong>Reina Pepiada 💗</strong>
+      </p>
+
+      <p>
+        Una canción que siempre me hace acordar a vos :]
+      </p>
+    </section>
+
+
+    <!-- SORPRESA -->
+    <section class="card surprise">
+      <h2>🎁 Tengo una sorpresita...</h2>
+
+      <p>
+        Hay algo que quiero decirte 👀
+      </p>
+
+      <button onclick="showSurprise()">
+        NO TOQUES ESTO 👀💗
+      </button>
+
+      <div id="secret">
+        TE AMO MUCHOTEEEE MI PIOJO 🐛💗😭
+        <br><br>
+        Feliz cumpleaños, mi niña :>
+      </div>
+    </section>
+
+  </div>
+
+
+  <footer>
+    Desde Argentina 🇦🇷💗 hasta República Dominicana 🇩🇴
+    <br>
+    Hecho con musho amor :>
+  </footer>
+
+
+  <script>
+    function showSurprise() {
+
+      document.getElementById("secret").style.display = "block";
+
+      for (let i = 0; i < 35; i++) {
+
+        const heart = document.createElement("div");
+
+        heart.className = "heart";
+        heart.innerHTML = Math.random() > 0.5 ? "💗" : "💖";
+
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.bottom = "-30px";
+        heart.style.animationDuration =
+          (2 + Math.random() * 2) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 4000);
+      }
+    }
+  </script>
+
+</body>
+  </html>
