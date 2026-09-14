@@ -116,10 +116,60 @@
       border-radius: 18px;
       box-shadow: 0 6px 15px rgba(0,0,0,0.15);
       transition: transform 0.25s;
+      cursor: pointer;
     }
 
     .gallery img:hover {
       transform: scale(1.04) rotate(1deg);
+    }
+
+    /* =========================
+       VISOR DE FOTOS
+    ========================= */
+
+    .visor {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.88);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      cursor: pointer;
+    }
+
+    .visor img {
+      max-width: 95%;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 20px;
+      box-shadow: 0 0 35px rgba(255, 255, 255, 0.2);
+      cursor: default;
+      animation: aparecerFoto 0.2s ease;
+    }
+
+    .cerrar {
+      position: absolute;
+      top: 18px;
+      right: 25px;
+      color: white;
+      font-size: 32px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 10000;
+    }
+
+    @keyframes aparecerFoto {
+      from {
+        transform: scale(0.85);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
     }
 
     /* =========================
@@ -230,8 +280,6 @@
       filter: blur(10px);
     }
 
-    /* Disco */
-
     .music-disc {
       width: 105px;
       height: 105px;
@@ -270,8 +318,6 @@
       }
     }
 
-    /* Título */
-
     .music-title {
       position: relative;
       z-index: 2;
@@ -289,26 +335,18 @@
       margin-bottom: 18px;
     }
 
-    /* Botón Play */
-
     .music-play {
       position: relative;
       z-index: 2;
-
       width: 62px;
       height: 62px;
-
       padding: 0;
       border-radius: 50%;
-
       display: flex;
       align-items: center;
       justify-content: center;
-
       margin: 0 auto 20px;
-
       font-size: 25px;
-
       box-shadow:
         0 7px 18px rgba(217,79,157,0.30);
     }
@@ -317,24 +355,18 @@
       transform: scale(1.08);
     }
 
-    /* Barra */
-
     .progress-container {
       position: relative;
       z-index: 2;
-
       width: 100%;
       cursor: pointer;
-
       padding: 8px 0;
     }
 
     .progress-bar {
       width: 100%;
       height: 7px;
-
       background: #ead7e8;
-
       border-radius: 10px;
       overflow: hidden;
     }
@@ -342,62 +374,46 @@
     .progress {
       width: 0%;
       height: 100%;
-
       background:
         linear-gradient(
           90deg,
           #ff72b6,
           #b978ff
         );
-
       border-radius: 10px;
-
       transition: width 0.1s linear;
     }
-
-    /* Tiempo */
 
     .music-times {
       position: relative;
       z-index: 2;
-
       display: flex;
       justify-content: space-between;
-
       margin-top: 6px;
-
       font-size: 13px;
       color: #8a638a;
     }
 
-    /* Ecualizador */
-
     .equalizer {
       position: relative;
       z-index: 2;
-
       height: 35px;
-
       display: flex;
       align-items: end;
       justify-content: center;
-
       gap: 4px;
-
       margin-top: 18px;
     }
 
     .equalizer span {
       width: 4px;
       height: 10px;
-
       background:
         linear-gradient(
           to top,
           #ff72b6,
           #b978ff
         );
-
       border-radius: 5px;
     }
 
@@ -430,8 +446,6 @@
         height: 32px;
       }
     }
-
-    /* Ocultamos el reproductor original */
 
     #audioReal {
       display: none;
@@ -474,9 +488,7 @@
 
   <div class="container">
 
-    <!-- =========================
-         PORTADA
-    ========================= -->
+    <!-- PORTADA -->
 
     <section class="card cover">
 
@@ -489,7 +501,7 @@
       </h1>
 
       <p class="subtitle">
-        Esta pequeña página la hice solamente para ti :>💓
+        Esta pequeña página la hice solamente para ti :>
       </p>
 
       <p>
@@ -499,9 +511,7 @@
     </section>
 
 
-    <!-- =========================
-         NUESTRA HISTORIA
-    ========================= -->
+    <!-- NUESTRA HISTORIA -->
 
     <section class="card story">
 
@@ -511,7 +521,7 @@
 
       <p>
         Desde ese día que te conocí, todo cambió para mí,
-        y fue de la buena manera jsjsjs.💗
+        y fue de la buena manera jsjsjs. 💗
       </p>
 
       <p>
@@ -537,16 +547,14 @@
       <p>
         <strong>
           Hice esto con musho amor solamente para ti,
-          mi niña c: 💗
+          mi niña :> 💗
         </strong>
       </p>
 
     </section>
 
 
-    <!-- =========================
-         GALERÍA
-    ========================= -->
+    <!-- GALERÍA -->
 
     <section class="card">
 
@@ -555,64 +563,35 @@
       </h2>
 
       <p style="text-align:center;">
-        Algunos recuerditos d nnosotros 💗
+        Algunos recuerditos de nosotros 💗
       </p>
 
       <div class="gallery">
 
-        <img
-          src="20260817_225754.jpg"
-          alt="Nuestro recuerdo"
-        >
+        <img src="20260817_225754.jpg" alt="Nuestro recuerdo">
 
-        <img
-          src="392e707528864f79ba02ccc0f7d827b5.webp"
-          alt="Nuestro recuerdo"
-        >
+        <img src="392e707528864f79ba02ccc0f7d827b5.webp" alt="Nuestro recuerdo">
 
-        <img
-          src="73f14971917c909306536a41342eff57.webp"
-          alt="Nuestro recuerdo"
-        >
+        <img src="73f14971917c909306536a41342eff57.webp" alt="Nuestro recuerdo">
 
-        <img
-          src="IMG_20260602_005224.jpg"
-          alt="Nuestro recuerdo"
-        >
+        <img src="IMG_20260602_005224.jpg" alt="Nuestro recuerdo">
 
-        <img
-          src="PXL_20260812_185036543(1).jpg"
-          alt="Nuestro recuerdo"
-        >
+        <img src="PXL_20260812_185036543(1).jpg" alt="Nuestro recuerdo">
 
-        <img
-          src="Screenshot_2026-08-01-19-34-16-710.jpg"
-          alt="Nuestro recuerdo"
-        >
+        <img src="Screenshot_2026-08-01-19-34-16-710.jpg" alt="Nuestro recuerdo">
 
-        <img
-          src="Screenshot_2026-08-25-04-53-37-465.jpg"
-          alt="Nuestro recuerdo"
-        >
+        <img src="Screenshot_2026-08-25-04-53-37-465.jpg" alt="Nuestro recuerdo">
 
-        <img
-          src="Screenshot_20260831_231329_TikTok.jpg"
-          alt="Nuestro recuerdo"
-        >
+        <img src="Screenshot_20260831_231329_TikTok.jpg" alt="Nuestro recuerdo">
 
-        <img
-          src="03d33212d77b42eeb53c7cfd825053de.webp"
-          alt="Nuestro recuerdo"
-        >
+        <img src="03d33212d77b42eeb53c7cfd825053de.webp" alt="Nuestro recuerdo">
 
       </div>
 
     </section>
 
 
-    <!-- =========================
-         10 COSAS
-    ========================= -->
+    <!-- 10 COSAS -->
 
     <section class="card">
 
@@ -624,73 +603,52 @@
 
         <div class="thing">
           <b>01 💗</b>
-          <p>
-            Tu Personalidad🥹.
-          </p>
+          <p>Tu forma de ser conmigo.</p>
         </div>
 
         <div class="thing">
           <b>02 💗</b>
-          <p>
-            Lo muchito ke m haces reír.
-          </p>
+          <p>Lo muchito ke m haces reír.</p>
         </div>
 
         <div class="thing">
           <b>03 💗</b>
-          <p>
-            Lo cariñosa ke eres conmigo :].
-          </p>
+          <p>Lo cariñosa ke eres conmigo :].</p>
         </div>
 
         <div class="thing">
           <b>04 💗</b>
-          <p>
-            Tu forma d demostrarme ke m kieres.
-          </p>
+          <p>Tu forma d demostrarme ke m kieres.</p>
         </div>
 
         <div class="thing">
           <b>05 💗</b>
-          <p>
-            Tu personalidad tan hermosa,
-            especial y única.
-          </p>
+          <p>Tu personalidad tan hermosa, especial y única.</p>
         </div>
 
         <div class="thing">
           <b>06 💗</b>
-          <p>
-            Todas las kosas bonitas ke pasamos juntos.
-          </p>
+          <p>Tods nuestros momentos juntos.</p>
         </div>
 
         <div class="thing">
           <b>07 💗</b>
-          <p>
-            ke seas mi niña :3.
-          </p>
+          <p>ke seas mi niña :3.</p>
         </div>
 
         <div class="thing">
           <b>08 💗</b>
-          <p>
-            Cómo siempre lográs alegrarme.
-          </p>
+          <p>Cómo siempre lográs alegrarme.</p>
         </div>
 
         <div class="thing">
           <b>09 💗</b>
-          <p>
-            ke io puedo ser yo mismo contigo.
-          </p>
+          <p>ke io puedo ser yo mismo contigo.</p>
         </div>
 
         <div class="thing">
           <b>10 💗</b>
-          <p>
-            y simplemente pq eres la chica d mis sueños:].
-          </p>
+          <p>y simplemente pq eres tu misma :].</p>
         </div>
 
       </div>
@@ -698,9 +656,7 @@
     </section>
 
 
-    <!-- =========================
-         CARTA
-    ========================= -->
+    <!-- CARTA -->
 
     <section class="card">
 
@@ -720,15 +676,13 @@
       </p>
 
       <p>
-        T kiiero muchísimo, mi piojito💖
+        Te quiero muchísimo, mi piojito💖
       </p>
 
     </section>
 
 
-    <!-- =========================
-         NUESTRA CANCIÓN
-    ========================= -->
+    <!-- NUESTRA CANCIÓN -->
 
     <section class="card" style="text-align:center;">
 
@@ -746,22 +700,14 @@
         este temon ke siempre m recuerda a ti:]
       </p>
 
-
-      <!-- REPRODUCTOR -->
-
       <div class="music-player">
 
         <div class="music-box">
-
-          <!-- DISCO ANIMADO -->
 
           <div
             class="music-disc"
             id="musicDisc"
           ></div>
-
-
-          <!-- NOMBRE -->
 
           <div class="music-title">
             Reina Pepiada 💗
@@ -770,9 +716,6 @@
           <div class="music-subtitle">
             nuestro temoncito :]
           </div>
-
-
-          <!-- AUDIO REAL -->
 
           <audio
             id="audioReal"
@@ -786,9 +729,6 @@
 
           </audio>
 
-
-          <!-- BOTÓN -->
-
           <button
             class="music-play"
             id="musicPlay"
@@ -796,9 +736,6 @@
           >
             ▶️
           </button>
-
-
-          <!-- BARRA -->
 
           <div
             class="progress-container"
@@ -814,7 +751,6 @@
 
             </div>
 
-
             <div class="music-times">
 
               <span id="currentTime">
@@ -828,9 +764,6 @@
             </div>
 
           </div>
-
-
-          <!-- ECUALIZADOR -->
 
           <div
             class="equalizer"
@@ -852,9 +785,7 @@
     </section>
 
 
-    <!-- =========================
-         SORPRESA
-    ========================= -->
+    <!-- SORPRESA -->
 
     <section class="card surprise">
 
@@ -863,7 +794,7 @@
       </h2>
 
       <p>
-        Hay algo ke kiero decirte jeje😛💖
+        Hay algo que quiero decirte jeje😛💖
       </p>
 
       <button onclick="showSurprise()">
@@ -872,11 +803,11 @@
 
       <div id="secret">
 
-        T AMO MUSHOTEEEE MI PIOJO 💗😭
+        TE AMO MUCHOTEEEE MI PIOJO 💗😭
 
         <br><br>
 
-         ke tengas un Feliz cumpleaños, mi niña :>
+        Feliz cumpleaños, mi niña :>
 
       </div>
 
@@ -885,9 +816,7 @@
   </div>
 
 
-  <!-- =========================
-       FOOTER
-  ========================= -->
+  <!-- FOOTER -->
 
   <footer>
 
@@ -901,10 +830,69 @@
 
 
   <!-- =========================
-       JAVASCRIPT
+       VISOR DE FOTO GRANDE
   ========================= -->
 
+  <div
+    id="visor"
+    class="visor"
+    onclick="cerrarFoto()"
+  >
+
+    <span
+      class="cerrar"
+      onclick="cerrarFoto()"
+    >
+      ✕
+    </span>
+
+    <img
+      id="fotoGrande"
+      src=""
+      alt="Foto ampliada"
+      onclick="event.stopPropagation()"
+    >
+
+  </div>
+
+
   <script>
+
+    /* =========================
+       VISOR DE FOTOS
+    ========================= */
+
+    const fotos =
+      document.querySelectorAll(".gallery img");
+
+    const visor =
+      document.getElementById("visor");
+
+    const fotoGrande =
+      document.getElementById("fotoGrande");
+
+
+    fotos.forEach(foto => {
+
+      foto.addEventListener("click", () => {
+
+        fotoGrande.src = foto.src;
+
+        visor.style.display = "flex";
+
+      });
+
+    });
+
+
+    function cerrarFoto() {
+
+      visor.style.display = "none";
+
+      fotoGrande.src = "";
+
+    }
+
 
     /* =========================
        REPRODUCTOR
